@@ -1,16 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-  fx:controller="com.example.physicsdelta.HelloController">
+<VBox alignment="CENTER" minHeight="480.0" minWidth="640.0" prefHeight="480.0" prefWidth="640.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.physicsdelta.BodyController">
   <padding>
-    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
   </padding>
-
-  <Label fx:id="welcomeText"/>
-  <Button text="Hello!" onAction="#onHelloButtonClick"/>
+  <GridPane hgap="10.0" vgap="10.0">
+    <columnConstraints>
+      <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0"/>
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0"/>
+      <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0"/>
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0"/>
+    </columnConstraints>
+    <rowConstraints>
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+    </rowConstraints>
+    <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" text="v0">
+      <GridPane.margin>
+        <Insets right="10.0"/>
+      </GridPane.margin>
+    </Label>
+    <Label text="m" GridPane.rowIndex="1">
+      <GridPane.margin>
+        <Insets right="10.0"/>
+      </GridPane.margin>
+    </Label>
+    <Label text="Nu" GridPane.columnIndex="2">
+      <GridPane.margin>
+        <Insets right="10.0"/>
+      </GridPane.margin>
+    </Label>
+    <Label text="g" GridPane.columnIndex="2" GridPane.rowIndex="1">
+      <GridPane.margin>
+        <Insets right="10.0"/>
+      </GridPane.margin>
+    </Label>
+    <TextField fx:id="v0Field" promptText="Начальная скорость" text="10" GridPane.columnIndex="1"/>
+    <TextField fx:id="mField" promptText="Масса тела" text="1" GridPane.columnIndex="1"
+      GridPane.rowIndex="1"/>
+    <TextField fx:id="nuField" promptText="Коэффициент трения" text="0.4" GridPane.columnIndex="3"/>
+    <TextField fx:id="gField" disable="true" promptText="Ускорение свободного падения" text="9.8"
+      GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+  </GridPane>
+  <Pane prefHeight="40.0" prefWidth="440.0">
+    <Rectangle fx:id="body" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="20.0" stroke="BLACK" strokeType="INSIDE" width="60.0" y="10.0" />
+  </Pane>
+   <Label fx:id="varParams" layoutX="276.0" layoutY="248.0" text="v = 10; x = 0" />
+   <Button mnemonicParsing="false" onAction="#start" text="Start" />
+   <Button mnemonicParsing="false" onAction="#reset" text="Reset" />
 </VBox>
